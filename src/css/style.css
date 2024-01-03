@@ -1,0 +1,75 @@
+.btn-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 8px 16px;
+}
+
+/*task 02*/
+
+.time-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 120px;
+}
+
+.setup {
+    display: flex;
+    gap: 4px;
+}
+
+.timer {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    gap: 32px;
+}
+
+.field {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.value {
+    font-size: 32px;
+}
+
+input {
+    padding: 12px;
+}
+
+/* Promises */
+
+.promise-form {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.promise-label {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.promise-label input {
+    padding: 6px 12px;
+    width: fit-content;
+}
+
+.promise-btn {
+    font-family: 'Courier New', Courier, monospace;
+    width: fit-content;
+}
