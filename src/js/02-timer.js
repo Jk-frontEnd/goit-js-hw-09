@@ -22,7 +22,7 @@ const options = {
     console.log(selectedDates[0]);
     if (!selectedDates[0] || selectedDates[0] < new Date()) {
       btnStart.disabled = true;
-      console.log("Please choose a date in the future");
+      alert("Please choose a date in the future");
     } else {
       btnStart.disabled = false;
     }
@@ -31,33 +31,41 @@ const options = {
 
 flatpickr(dateInput, options);
 
-const onClick = () => {
+const onClick = () => {  
   const targetDate = new Date(dateInput.value);
   const currentDate = new Date();
 
   let timeRemaining = targetDate.getTime() - currentDate.getTime();
 
   if (timeRemaining <= 0) {
-    console.log("Selected date has already passed.");
+    alert("Selected date has already passed.");
     return;
+  } else {
+    btnStart.disabled = true;
   }
 
-  // Initial display
   updateTimerDisplay(timeRemaining);
 
   timerId = setInterval(() => {
-    if (timeRemaining <= 0) {
-      clearInterval(timerId);
-      console.log("Countdown completed!");
-      return;
-    }
-
     timeRemaining -= 1000;
     updateTimerDisplay(timeRemaining);
   }, 1000);
 };
 
 const updateTimerDisplay = (timeRemaining) => {
+  if (timeRemaining < 0) {
+    clearInterval(timerId);
+    alert("Countdown completed!");
+
+    daysOutput.textContent = 0;
+    hoursOutput.textContent = 0;
+    minsOutput.textContent = 0;
+    secsOutput.textContent = 0;
+
+    btnStart.disabled = false;
+    return;
+  }
+
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
